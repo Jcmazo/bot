@@ -1,0 +1,20 @@
+{
+  "name": "mt4-deriv-bot",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "node src/main.js",
+    "package-win": "electron-packager . mt4-deriv-bot --platform=win32 --arch=x64 --out=dist --overwrite --ignore=node_modules/electron"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.51.0"
+  },
+  "devDependencies": {
+    "electron": "^30.1.0",
+    "electron-packager": "^17.1.2"
+  }
+}

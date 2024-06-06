@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT4 to Deriv Bot</title>
+</head>
+<body>
+    <h1>MT4 to Deriv Bot</h1>
+    <form id="config-form">
+        <label for="api-url">Deriv API URL:</label>
+        <input type="text" id="api-url" required><br>
+
+        <label for="telegram-token">Telegram Bot Token:</label>
+        <input type="text" id="telegram-token" required><br>
+
+        <label for="chat-id">Telegram Chat ID:</label>
+        <input type="text" id="chat-id" required><br>
+
+        <button type="submit">Start Bot</button>
+        <button type="button" id="stop-btn">Stop Bot</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('config-form');
+        const stopButton = document.getElementById('stop-btn');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const config = {
+                apiUrl: document.getElementById('api-url').value,
+                token: document.getElementById('telegram-token').value,
+                chat: document.getElementById('chat-id').value
+            };
+            window.electron.startBot(config);
+        });
+
+        stopButton.addEventListener('click', () => {
+            window.electron.stopBot();
+        });
+    </script>
+</body>
+</html>
